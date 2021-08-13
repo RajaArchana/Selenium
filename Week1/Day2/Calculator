@@ -1,0 +1,37 @@
+package assignment1;
+
+public class Calculator {
+	public int add(int num1, int num2, int num3)
+	{
+		int result = num1 + num2 + num3;
+		return result;
+	}
+	public int sub(int num1, int num2)
+	{
+		int result = num1 - num2 ;
+		return result;
+	}
+	public double mul(double num1, double num2)
+	{
+		double result = num1 * num2 ;
+		return result;
+	}
+	public float divide(float num1, float num2)
+	{
+		float result = num1 / num2 ;
+		return result;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Calculator cal =new Calculator();
+		int add=cal.add(25,15,45);
+		System.out.println("addition : "+add);
+		int sub=cal.sub(25,15);
+		System.out.println("subraction : "+sub);
+		double mul=cal.mul(25,15);
+		System.out.println("product : "+mul);
+		float div=cal.divide(25,15);
+		System.out.println("remainder : "+div);
+	}
+
+}

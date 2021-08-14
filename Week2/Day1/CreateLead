@@ -1,0 +1,94 @@
+package assignment4;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class CreateLead {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//Login page
+		WebDriverManager.chromedriver().setup();
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leaftaps.com/opentaps/control/login");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		// driver.close();
+		driver.findElement(By.id("username")).sendKeys("demosalesmanager");
+		driver.findElement(By.id("password")).sendKeys("crmsfa");
+		driver.findElement(By.className("decorativeSubmit")).click();
+		//CRMSFA Page
+		driver.findElement(By.linkText("CRM/SFA")).click();
+		//Home page
+		driver.findElement(By.linkText("Leads")).click();
+		driver.findElement(By.linkText("Create Lead")).click();
+		//Create lead page
+		driver.findElement(By.id("createLeadForm_companyName")).sendKeys("HCl");
+		driver.findElement(By.id("createLeadForm_firstName")).sendKeys("Archana");
+		driver.findElement(By.id("createLeadForm_lastName")).sendKeys("R");
+		WebElement source = driver.findElement(By.id("createLeadForm_dataSourceId"));
+		Select drop= new Select(source);
+		drop.selectByValue("LEAD_COLDCALL");
+		driver.findElement(By.id("createLeadForm_firstNameLocal")).sendKeys("Archu");
+		driver.findElement(By.id("createLeadForm_personalTitle")).sendKeys("Lead");
+		driver.findElement(By.id("createLeadForm_generalProfTitle")).sendKeys("Creating leadForm");
+		driver.findElement(By.id("createLeadForm_annualRevenue")).sendKeys("10LPA");
+		WebElement industry = driver.findElement(By.id("createLeadForm_industryEnumId"));
+		Select drop1= new Select(industry);
+		drop1.selectByVisibleText("Aerospace");
+		WebElement owner = driver.findElement(By.id("createLeadForm_ownershipEnumId"));
+		Select drop2= new Select(owner);
+		drop2.selectByValue("OWN_PROPRIETOR");
+		driver.findElement(By.id("createLeadForm_sicCode")).sendKeys("620013");
+		driver.findElement(By.id("createLeadForm_description")).sendKeys("enter all the values");
+		driver.findElement(By.id("createLeadForm_importantNote")).sendKeys("Fill the form");
+		driver.findElement(By.id("createLeadForm_marketingCampaignId")).sendKeys("Marketing campagin");
+		driver.findElement(By.id("createLeadForm_lastNameLocal")).sendKeys("Raja");
+		driver.findElement(By.id("createLeadForm_departmentName")).sendKeys("CSE");
+		driver.findElement(By.id("createLeadForm_numberEmployees")).sendKeys("10");
+		WebElement currency = driver.findElement(By.id("createLeadForm_currencyUomId"));
+		Select drop3= new Select(currency);
+		drop3.selectByValue("ARS");
+		//Contact Information
+		driver.findElement(By.id("createLeadForm_primaryPhoneCountryCode")).clear();
+		driver.findElement(By.id("createLeadForm_primaryPhoneCountryCode")).sendKeys("2");
+		driver.findElement(By.id("createLeadForm_primaryPhoneAreaCode")).sendKeys("001");
+		driver.findElement(By.id("createLeadForm_primaryPhoneExtension")).sendKeys("1995");
+		driver.findElement(By.id("createLeadForm_primaryEmail")).sendKeys("archu.raja95@gmai.com");
+		driver.findElement(By.id("createLeadForm_primaryPhoneNumber")).sendKeys("100100");
+		driver.findElement(By.id("createLeadForm_primaryPhoneAskForName")).sendKeys("Archana");
+		driver.findElement(By.id("createLeadForm_primaryWebUrl")).sendKeys("www.google.com");
+		//Primary Address
+		driver.findElement(By.id("createLeadForm_generalToName")).sendKeys("2");
+		driver.findElement(By.id("createLeadForm_generalAddress1")).sendKeys("001");
+		driver.findElement(By.id("createLeadForm_generalCity")).sendKeys("1995");
+		driver.findElement(By.id("createLeadForm_generalPostalCode")).sendKeys("archu.raja95@gmai.com");
+		driver.findElement(By.id("createLeadForm_generalPostalCodeExt")).sendKeys("100100");
+		driver.findElement(By.id("createLeadForm_generalAttnName")).sendKeys("Archana");
+		driver.findElement(By.id("createLeadForm_generalAddress2")).sendKeys("www.google.com");
+		WebElement state = driver.findElement(By.id("createLeadForm_generalStateProvinceGeoId"));
+		Select drop4= new Select(state);
+		drop4.selectByValue("AK");
+		driver.findElementByClassName("smallSubmit").click();
+		//View page
+		WebElement name=driver.findElementById("viewLead_firstName_sp");
+		String firstName= name.getText();
+		System.out.println("The First name in view page is "+firstName);
+		String Viewtext ="View Lead | opentaps CRM";
+		String TitleView = driver.getTitle();
+		if(Viewtext.equalsIgnoreCase(TitleView)) {
+		System.out.println("The View title is matched-----"+TitleView);
+		}else {
+			System.out.println("The View title is not matched---"+TitleView);
+		}
+		
+
+	}
+
+}

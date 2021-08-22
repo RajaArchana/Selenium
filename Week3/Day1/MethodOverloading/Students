@@ -1,0 +1,28 @@
+package assignment12;
+
+public class Students {
+
+	public void getStudentInfo() {
+		System.out.println("Getting Student Information");
+	}
+
+	public void getStudentInfo(int id, String name) {
+		System.out.println("The Id of the student----"+id);
+		System.out.println("The Name of the student----"+name);
+
+	}
+
+	public void getStudentInfo(String email, String phn) {
+		System.out.println("The Email of the student----"+email);
+		System.out.println("The Phone number of the student----"+phn);
+	}
+
+	public static void main(String[] args) {
+		System.out.println("********Method Overloading********");
+		Students stud = new Students();
+		stud.getStudentInfo();
+		stud.getStudentInfo(51146004, "Archana");
+		stud.getStudentInfo("archu.raja95@gmail.com", "96008448789");
+	}
+
+}

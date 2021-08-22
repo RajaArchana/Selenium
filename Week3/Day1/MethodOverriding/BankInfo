@@ -1,0 +1,18 @@
+package assignment11;
+
+public class BankInfo {
+
+	public void saving() {
+		System.out.println("My Saving on my account is One Lakh");
+	}
+
+	public void fixed() {
+		System.out.println("My Fixed amount on my account is One Lakh");
+
+	}
+
+	public void deposit() {
+		System.out.println("My Deposited amount on my account is 45000");
+
+	}
+}

@@ -1,0 +1,8 @@
+package assignment9;
+
+public class Comuter {
+
+	public void computerModel() {
+		System.out.println("The computer model is Dell");
+	}
+}

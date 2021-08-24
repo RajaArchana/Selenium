@@ -1,0 +1,21 @@
+package assignment13;
+
+public class Desktop implements HardWare, Software {
+
+	public void softwareResources() {
+		System.out.println("softwareResources method from Hardware");
+	}
+
+	public void hardwareResources() {
+		System.out.println("hardwareResources method from Software");
+
+	}
+
+	public static void main(String[] args) {
+		System.out.println("*************Created 2 Interface and archieved multiple inheritance*************");
+		Desktop desk = new Desktop();
+		desk.softwareResources();
+		desk.hardwareResources();
+	}
+
+}

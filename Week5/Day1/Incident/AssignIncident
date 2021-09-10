@@ -1,0 +1,12 @@
+package Assignment2;
+
+public class AssignIncident {
+
+	public static void main(String[] args) {
+		// click on open and Search for the existing incident and click on the incident
+		// Assign the incident to Software group
+		// Update the incident with Work Notes
+		// Verify the Assignment group and Assigned for the incident
+	}
+
+}
